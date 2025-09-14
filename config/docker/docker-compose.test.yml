@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ../..
+      dockerfile: config/docker/Dockerfile.dev
+    environment:
+      - ENVIRONMENT=test
+      - DATABASE_URL=postgresql://test_user:test_password@test_db:5432/transcendent_test
+    depends_on:
+      - test_db
+    networks:
+      - test_network
+
+  test_db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: transcendent_test
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_password
+    tmpfs:
+      - /var/lib/postgresql/data
+    networks:
+      - test_network
+
+  cucumber_tests:
+    build:
+      context: ../..
+      dockerfile: config/docker/Dockerfile.dev
+    command: ["./scripts/test/run_cucumber_tests.sh"]
+    depends_on:
+      - app
+    networks:
+      - test_network
+
+  behave_tests:
+    build:
+      context: ../..
+      dockerfile: config/docker/Dockerfile.dev
+    command: ["./scripts/test/run_behave_tests.sh"]
+    depends_on:
+      - app
+    networks:
+      - test_network
+
+networks:
+  test_network:
+    driver: bridge

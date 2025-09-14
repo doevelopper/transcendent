@@ -1,0 +1,31 @@
+name: Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Bazel
+      uses: bazelbuild/setup-bazelisk@v2
+    
+    - name: Run unit tests
+      run: bazel test //src/test/... --test_output=errors
+    
+    - name: Generate coverage
+      run: |
+        bazel coverage //src/test/... --combined_report=lcov
+        mkdir -p coverage
+        cp bazel-out/_coverage/_coverage_report.dat coverage/
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        files: coverage/_coverage_report.dat
