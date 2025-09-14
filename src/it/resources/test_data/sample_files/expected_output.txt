@@ -1,0 +1,5 @@
+Expected output for integration tests:
+PROCESSED: User data validation - SUCCESS
+PROCESSED: Transaction processing - SUCCESS  
+PROCESSED: System integration - SUCCESS
+PROCESSED: Performance testing - SUCCESS

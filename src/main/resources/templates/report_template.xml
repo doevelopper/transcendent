@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+    <title>{{report_title}}</title>
+    <generated_date>{{generation_date}}</generated_date>
+    <data>
+        <section name="summary">
+            <value>{{summary_data}}</value>
+        </section>
+        <section name="details">
+            <items>{{detail_items}}</items>
+        </section>
+    </data>
+</report>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Template</title>
+</head>
+<body>
+    <h1>Welcome to Transcendent</h1>
+    <p>Hello {{username}},</p>
+    <p>Thank you for joining our application.</p>
+    <p>Best regards,<br>The Transcendent Team</p>
+</body>
+</html>

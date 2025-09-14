@@ -1,0 +1,18 @@
+services:
+  data_service:
+    mock_responses:
+      save_data: 
+        status: "success"
+        message: "Data saved successfully"
+      load_data:
+        status: "success"
+        data: "mock_data_content"
+  
+  network_service:
+    mock_responses:
+      send_request:
+        status: "success"
+        response_code: 200
+      connect:
+        status: "connected"
+        endpoint: "mock://localhost:8080"

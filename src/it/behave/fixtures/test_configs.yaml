@@ -1,0 +1,15 @@
+test_environment:
+  api_base_url: "http://localhost:8080/api"
+  database_url: "postgresql://test:test@localhost:5432/test_transcendent"
+  timeout: 30
+  retry_attempts: 3
+
+performance_thresholds:
+  max_response_time_ms: 500
+  max_query_time_ms: 100
+  max_concurrent_users: 1000
+
+security_settings:
+  enable_auth_tests: true
+  enable_injection_tests: true
+  test_ssl_verification: true

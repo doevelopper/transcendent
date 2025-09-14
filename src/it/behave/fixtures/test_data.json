@@ -1,0 +1,28 @@
+{
+  "test_users": [
+    {
+      "username": "testuser1",
+      "email": "test1@example.com",
+      "id": 1
+    },
+    {
+      "username": "testuser2", 
+      "email": "test2@example.com",
+      "id": 2
+    }
+  ],
+  "test_transactions": [
+    {
+      "id": "tx_001",
+      "user_id": 1,
+      "amount": 100.50,
+      "type": "credit"
+    },
+    {
+      "id": "tx_002",
+      "user_id": 2,
+      "amount": 50.25,
+      "type": "debit"
+    }
+  ]
+}

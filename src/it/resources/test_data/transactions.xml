@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transactions>
+    <transaction id="tx_001" user_id="1" amount="150.00" type="credit" timestamp="2023-01-01T10:30:00Z"/>
+    <transaction id="tx_002" user_id="1" amount="25.50" type="debit" timestamp="2023-01-01T11:00:00Z"/>
+    <transaction id="tx_003" user_id="2" amount="200.75" type="credit" timestamp="2023-01-01T11:30:00Z"/>
+</transactions>
