@@ -1,0 +1,27 @@
+[Unit]
+Description=Transcendent Application
+After=network.target postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=simple
+User=transcendent
+Group=transcendent
+WorkingDirectory=/usr/share/transcendent
+ExecStart=/usr/bin/transcendent --config=/etc/transcendent/application.conf
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=transcendent
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/log/transcendent
+
+[Install]
+WantedBy=multi-user.target

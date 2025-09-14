@@ -1,0 +1,44 @@
+# Dockerfile for development environment
+FROM ubuntu:22.04
+
+# Install development dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    curl \
+    gdb \
+    git \
+    libssl-dev \
+    libpq-dev \
+    openjdk-11-jdk \
+    python3 \
+    python3-pip \
+    valgrind \
+    vim \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Bazel
+RUN wget -O /tmp/bazel-installer.sh https://github.com/bazelbuild/bazel/releases/download/6.0.0/bazel-6.0.0-installer-linux-x86_64.sh \
+    && chmod +x /tmp/bazel-installer.sh \
+    && /tmp/bazel-installer.sh \
+    && rm /tmp/bazel-installer.sh
+
+# Install development Python packages
+RUN pip3 install \
+    behave \
+    psycopg2-binary \
+    requests
+
+# Create development user
+RUN useradd -m -s /bin/bash developer && \
+    echo "developer ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Set working directory
+WORKDIR /workspace
+
+# Switch to development user
+USER developer
+
+# Default command
+CMD ["/bin/bash"]

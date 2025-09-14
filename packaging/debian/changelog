@@ -1,0 +1,10 @@
+transcendent (1.0.0-1) unstable; urgency=medium
+
+  * Initial release of Transcendent application
+  * Features user and transaction management
+  * RESTful API with JWT authentication
+  * PostgreSQL database integration
+  * Comprehensive logging system
+  * Docker containerization support
+
+ -- Transcendent Team <team@transcendent.example.com>  Mon, 01 Jan 2024 00:00:00 +0000

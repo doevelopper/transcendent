@@ -1,0 +1,25 @@
+[production]
+web-server-1 ansible_host=10.0.1.10 ansible_user=ubuntu
+web-server-2 ansible_host=10.0.1.11 ansible_user=ubuntu
+web-server-3 ansible_host=10.0.1.12 ansible_user=ubuntu
+
+[database]
+db-server-1 ansible_host=10.0.2.10 ansible_user=ubuntu
+
+[loadbalancer]
+lb-server-1 ansible_host=10.0.3.10 ansible_user=ubuntu
+
+[production:children]
+web
+database
+loadbalancer
+
+[staging]
+staging-server-1 ansible_host=10.0.10.10 ansible_user=ubuntu
+
+[development]
+dev-server-1 ansible_host=10.0.20.10 ansible_user=ubuntu
+
+[all:vars]
+ansible_ssh_private_key_file=~/.ssh/transcendent-key.pem
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'

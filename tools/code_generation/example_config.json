@@ -1,0 +1,25 @@
+{
+    "class_name": "ExampleService",
+    "namespace": "github::transcendent::services",
+    "description": "Service for handling example operations",
+    "output_dir": "src/main/cpp/com/github/transcendent/services",
+    "methods": [
+        {
+            "name": "processRequest",
+            "return_type": "bool",
+            "description": "Process incoming requests"
+        },
+        {
+            "name": "validateInput", 
+            "return_type": "bool",
+            "description": "Validate input parameters"
+        }
+    ],
+    "members": [
+        {
+            "name": "initialized_",
+            "type": "bool",
+            "default_value": "false"
+        }
+    ]
+}

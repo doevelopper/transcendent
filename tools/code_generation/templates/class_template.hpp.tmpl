@@ -1,0 +1,49 @@
+// Template for C++ class header
+// Usage: Replace {{CLASS_NAME}}, {{NAMESPACE}}, etc. with actual values
+
+#pragma once
+
+#include <memory>
+#include <string>
+
+namespace {{NAMESPACE}} {
+
+/**
+ * @brief {{CLASS_DESCRIPTION}}
+ */
+class {{CLASS_NAME}} {
+public:
+    /**
+     * @brief Constructor
+     */
+    {{CLASS_NAME}}();
+    
+    /**
+     * @brief Destructor
+     */
+    virtual ~{{CLASS_NAME}}();
+    
+    // Copy constructor and assignment operator
+    {{CLASS_NAME}}(const {{CLASS_NAME}}&) = delete;
+    {{CLASS_NAME}}& operator=(const {{CLASS_NAME}}&) = delete;
+    
+    // Move constructor and assignment operator
+    {{CLASS_NAME}}({{CLASS_NAME}}&&) = default;
+    {{CLASS_NAME}}& operator=({{CLASS_NAME}}&&) = default;
+
+{{#METHODS}}
+    /**
+     * @brief {{METHOD_DESCRIPTION}}
+     * @return {{RETURN_TYPE}}
+     */
+    {{RETURN_TYPE}} {{METHOD_NAME}}();
+{{/METHODS}}
+
+private:
+    // Private member variables
+{{#MEMBERS}}
+    {{MEMBER_TYPE}} {{MEMBER_NAME}};
+{{/MEMBERS}}
+};
+
+} // namespace {{NAMESPACE}}

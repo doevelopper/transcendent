@@ -1,0 +1,37 @@
+// Template for C++ class implementation
+// Usage: Replace {{CLASS_NAME}}, {{NAMESPACE}}, etc. with actual values
+
+#include "{{HEADER_FILE}}"
+#include "logging/logger.hpp"
+
+namespace {{NAMESPACE}} {
+
+{{CLASS_NAME}}::{{CLASS_NAME}}() {
+    LOG_DEBUG("{{CLASS_NAME}} constructor called");
+{{#MEMBERS}}
+{{#MEMBER_INIT}}
+    {{MEMBER_NAME}} = {{MEMBER_DEFAULT_VALUE}};
+{{/MEMBER_INIT}}
+{{/MEMBERS}}
+}
+
+{{CLASS_NAME}}::~{{CLASS_NAME}}() {
+    LOG_DEBUG("{{CLASS_NAME}} destructor called");
+}
+
+{{#METHODS}}
+{{RETURN_TYPE}} {{CLASS_NAME}}::{{METHOD_NAME}}() {
+    LOG_DEBUG("{{CLASS_NAME}}::{{METHOD_NAME}} called");
+    
+    {{#IS_VOID}}
+    // TODO: Implement {{METHOD_NAME}}
+    {{/IS_VOID}}
+    {{#NOT_VOID}}
+    // TODO: Implement {{METHOD_NAME}}
+    return {{DEFAULT_RETURN_VALUE}};
+    {{/NOT_VOID}}
+}
+
+{{/METHODS}}
+
+} // namespace {{NAMESPACE}}

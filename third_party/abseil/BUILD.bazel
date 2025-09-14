@@ -1,0 +1,10 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "abseil",
+    hdrs = glob(["absl/**/*.h"]),
+    srcs = glob(["absl/**/*.cc"]),
+    includes = ["."],
+    visibility = ["//visibility:public"],
+    linkopts = ["-pthread"],
+)

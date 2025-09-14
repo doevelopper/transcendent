@@ -1,0 +1,29 @@
+Source: transcendent
+Section: misc
+Priority: optional
+Maintainer: Transcendent Team <team@transcendent.example.com>
+Build-Depends: 
+    debhelper (>= 12),
+    cmake,
+    g++,
+    libssl-dev,
+    libpq-dev,
+    bazel
+Standards-Version: 4.5.1
+Homepage: https://github.com/yourorg/transcendent
+Vcs-Git: https://github.com/yourorg/transcendent.git
+Vcs-Browser: https://github.com/yourorg/transcendent
+
+Package: transcendent
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libpq5
+Description: Comprehensive application for user and transaction management
+ Transcendent is a high-performance C++ application designed for managing
+ users and transactions with enterprise-grade security and scalability.
+ .
+ Features include:
+  - RESTful API for user and transaction management
+  - JWT-based authentication and authorization
+  - PostgreSQL database integration
+  - Comprehensive logging and monitoring
+  - Docker and Kubernetes deployment support

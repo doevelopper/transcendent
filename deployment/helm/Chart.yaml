@@ -1,0 +1,25 @@
+apiVersion: v2
+name: transcendent
+description: A Helm chart for Transcendent application
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+
+keywords:
+  - transcendent
+  - api
+  - microservice
+
+home: https://github.com/yourorg/transcendent
+sources:
+  - https://github.com/yourorg/transcendent
+
+maintainers:
+  - name: Transcendent Team
+    email: team@transcendent.example.com
+
+dependencies:
+  - name: postgresql
+    version: 12.x.x
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled

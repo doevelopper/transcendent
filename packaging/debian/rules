@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	bazel build //src/main/cpp:transcendent
+
+override_dh_auto_install:
+	mkdir -p debian/transcendent/usr/bin
+	mkdir -p debian/transcendent/etc/transcendent
+	mkdir -p debian/transcendent/var/log/transcendent
+	mkdir -p debian/transcendent/lib/systemd/system
+	
+	# Install binary
+	cp bazel-bin/src/main/cpp/transcendent debian/transcendent/usr/bin/
+	
+	# Install configuration files
+	cp -r config/environments/production/* debian/transcendent/etc/transcendent/
+	
+	# Install systemd service file
+	cp packaging/debian/transcendent.service debian/transcendent/lib/systemd/system/
+
+override_dh_auto_clean:
+	bazel clean
